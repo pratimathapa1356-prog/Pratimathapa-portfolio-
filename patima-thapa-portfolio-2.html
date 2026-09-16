@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Patima Thapa - Integrated Management Student Portfolio">
+<title>Patima Thapa | Student Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{--bg:#fffaf7;--card:#fff;--text:#29252a;--muted:#756d75;--primary:#b85c7a;--secondary:#f3d7df;--accent:#e8a7ba;--dark:#342c33;--shadow:0 15px 40px rgba(80,50,65,.1)}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,250,247,.92);backdrop-filter:blur(12px);border-bottom:1px solid #f0e4e8}
+.nav-container{max-width:1100px;margin:auto;padding:18px 25px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:1.3rem;font-weight:bold;color:var(--primary)}
+nav ul{list-style:none;display:flex;gap:28px}
+nav a{text-decoration:none;color:var(--text);font-size:.95rem;transition:.3s}
+nav a:hover{color:var(--primary)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 25px 70px;background:radial-gradient(circle at 10% 20%,#f8dfe6 0,transparent 25%),radial-gradient(circle at 90% 80%,#f4e2d9 0,transparent 28%),var(--bg)}
+.hero-content{max-width:1050px;width:100%;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+.tag{display:inline-block;padding:8px 16px;background:var(--secondary);color:var(--primary);border-radius:50px;font-weight:bold;margin-bottom:20px}
+.hero h1{font-size:clamp(3rem,8vw,6rem);line-height:1;margin-bottom:20px;letter-spacing:-3px}
+.hero h1 span{color:var(--primary)}
+.hero p{font-size:1.15rem;color:var(--muted);max-width:600px;margin-bottom:30px}
+.buttons{display:flex;gap:15px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:50px;text-decoration:none;font-weight:bold;transition:.3s}
+.btn-primary{background:var(--primary);color:white}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(184,92,122,.3)}
+.btn-outline{border:2px solid var(--primary);color:var(--primary)}
+.btn-outline:hover{background:var(--secondary)}
+.profile-box{width:310px;height:310px;margin:auto;border-radius:50%;background:linear-gradient(145deg,#f2c8d4,#f7e6dc);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);position:relative}
+.profile-box::before{content:"PT";width:210px;height:210px;border-radius:50%;background:white;display:flex;align-items:center;justify-content:center;font-size:4rem;font-weight:bold;color:var(--primary);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+section{padding:100px 25px}
+.container{max-width:1050px;margin:auto}
+.section-title{text-align:center;margin-bottom:55px}
+.section-title small{color:var(--primary);font-weight:bold;text-transform:uppercase;letter-spacing:2px}
+.section-title h2{font-size:2.7rem;margin-top:8px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.card{background:var(--card);padding:35px;border-radius:25px;box-shadow:var(--shadow)}
+.card h3{margin-bottom:15px;color:var(--primary)}
+.highlight{color:var(--primary);font-weight:bold}
+.education{background:#f8eef1}
+.education-card{max-width:750px;margin:auto;position:relative;padding-left:45px;border-left:3px solid var(--accent)}
+.education-card::before{content:"";position:absolute;left:-10px;top:5px;width:17px;height:17px;border-radius:50%;background:var(--primary)}
+.education-card h3{font-size:1.5rem}
+.education-card .year{color:var(--primary);font-weight:bold}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.skill{background:white;padding:28px 18px;text-align:center;border-radius:20px;box-shadow:var(--shadow);transition:.3s}
+.skill:hover{transform:translateY(-7px)}
+.skill .icon{font-size:2.2rem;margin-bottom:12px}
+.skill h3{font-size:1rem}
+.hobbies{background:var(--dark);color:white}
+.hobbies .section-title small{color:var(--accent)}
+.hobbies .section-title h2{color:white}
+.hobby-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.hobby{padding:35px 20px;text-align:center;border:1px solid rgba(255,255,255,.12);border-radius:20px;transition:.3s}
+.hobby:hover{background:rgba(255,255,255,.08);transform:translateY(-5px)}
+.hobby span{font-size:2.7rem;display:block;margin-bottom:12px}
+.goal-box{text-align:center;max-width:800px;margin:auto;padding:55px 35px;background:linear-gradient(135deg,#f8dce5,#f8e8df);border-radius:30px}
+.goal-box h3{font-size:2rem;margin-bottom:15px}
+.quote{font-size:1.7rem;font-weight:bold;color:var(--primary);margin-top:25px}
+.contact{background:#fff}
+.contact-box{max-width:700px;margin:auto;text-align:center;background:var(--bg);padding:50px 30px;border-radius:30px}
+.email{display:inline-block;margin-top:20px;font-size:1.1rem;color:var(--primary);font-weight:bold;text-decoration:none}
+footer{background:var(--dark);color:#ddd;text-align:center;padding:30px 20px;font-size:.9rem}
+.fade{opacity:0;transform:translateY(25px);animation:fadeUp .8s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){nav ul{display:none}.hero-content{grid-template-columns:1fr;text-align:center}.hero p{margin-left:auto;margin-right:auto}.buttons{justify-content:center}.profile-box{width:240px;height:240px}.profile-box::before{width:165px;height:165px;font-size:3rem}.about-grid{grid-template-columns:1fr}.skills-grid,.hobby-grid{grid-template-columns:repeat(2,1fr)}.hero h1{letter-spacing:-2px}}
+@media(max-width:500px){section{padding:70px 18px}.skills-grid,.hobby-grid{grid-template-columns:1fr 1fr;gap:12px}.skill,.hobby{padding:22px 10px}.section-title h2{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<nav><div class="nav-container"><div class="logo">Patima Thapa</div><ul>
+<li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#education">Education</a></li><li><a href="#skills">Skills</a></li><li><a href="#hobbies">Hobbies</a></li><li><a href="#goals">Goals</a></li><li><a href="#contact">Contact</a></li>
+</ul></div></nav>
+
+<section class="hero" id="home"><div class="hero-content">
+<div class="fade"><div class="tag">Integrated Management Student</div>
+<h1>Hello, I'm <span>Patima.</span></h1>
+<p>A first-year Integrated Management student at Dong-A University who loves learning, creativity, and exploring new possibilities.</p>
+<div class="buttons"><a href="#about" class="btn btn-primary">Explore My Portfolio</a><a href="#contact" class="btn btn-outline">Contact Me</a></div></div>
+<div class="profile-box fade"></div></div></section>
+
+<section id="about"><div class="container"><div class="section-title"><small>Get to know me</small><h2>About Me</h2></div>
+<div class="about-grid"><div class="card"><h3>Who I Am</h3><p>My name is <span class="highlight">Patima Thapa</span>. I am currently a first-year student studying <span class="highlight">Integrated Management</span> at Dong-A University.</p><br><p>I am curious, motivated, and always interested in learning something new. I enjoy experiences that help me grow both personally and academically.</p></div>
+<div class="card"><h3>My Strength</h3><p>One of my biggest strengths is that <span class="highlight">I learn things quickly</span>. I enjoy adapting to new situations and developing new skills.</p><br><p>I also have a creative side, which I express through dancing, singing, drawing, and makeup.</p></div></div></div></section>
+
+<section class="education" id="education"><div class="container"><div class="section-title"><small>My academic journey</small><h2>Education</h2></div>
+<div class="education-card"><div class="year">2026 — Present</div><h3>Dong-A University</h3><p><strong>Integrated Management</strong></p><p>First-year student building a foundation in business, management, communication, and professional development.</p></div></div></section>
+
+<section id="skills"><div class="container"><div class="section-title"><small>What I can do</small><h2>My Skills</h2></div>
+<div class="skills-grid"><div class="skill"><div class="icon">⚡</div><h3>Quick Learning</h3></div><div class="skill"><div class="icon">💬</div><h3>Communication</h3></div><div class="skill"><div class="icon">🎨</div><h3>Creativity</h3></div><div class="skill"><div class="icon">🌱</div><h3>Adaptability</h3></div></div></div></section>
+
+<section class="hobbies" id="hobbies"><div class="container"><div class="section-title"><small>What I enjoy</small><h2>My Hobbies</h2></div>
+<div class="hobby-grid"><div class="hobby"><span>💃</span><h3>Dancing</h3><p>Expressing myself through movement and music.</p></div><div class="hobby"><span>🎤</span><h3>Singing</h3><p>Enjoying music and creative expression.</p></div><div class="hobby"><span>🎨</span><h3>Drawing</h3><p>Exploring ideas through art and imagination.</p></div><div class="hobby"><span>💄</span><h3>Makeup</h3><p>Experimenting with beauty, colors, and styles.</p></div></div></div></section>
+
+<section id="goals"><div class="container"><div class="section-title"><small>Looking ahead</small><h2>My Goals</h2></div>
+<div class="goal-box"><h3>Building My Future</h3><p>My goal is to build a strong foundation in business and management while discovering the career path that best matches my interests and strengths.</p><p>During my university journey, I want to gain knowledge, practical experience, communication skills, and confidence.</p><div class="quote">“Learn. Create. Grow.”</div></div></div></section>
+
+<section class="contact" id="contact"><div class="container"><div class="section-title"><small>Let's connect</small><h2>Contact Me</h2></div>
+<div class="contact-box"><h3>Patima Thapa</h3><p>Integrated Management Student<br>Dong-A University</p><a class="email" href="mailto:pratimathapa1356@gmail.com">pratimathapa1356@gmail.com</a></div></div></section>
+
+<footer><p>© 2026 Patima Thapa · Student Portfolio</p></footer>
+</body>
+</html>
